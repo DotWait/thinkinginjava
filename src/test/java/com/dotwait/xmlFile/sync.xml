@@ -1,0 +1,33 @@
+<rpc message-id='101'
+     xmlns='urn:ietf:params:xml:ns:netconf:base:1.0'
+     xmlns:web='urn:ietf:params:xml:ns:netconf:base:1.0'>
+    <edit-config>
+        <target>
+            <running/>
+        </target>
+        <config>
+            <top xmlns='http://www.h3c.com/netconf/config:1.0' web:operation='remove'>
+                <AVC>
+                    <TrafficPolicyRules>
+                        <Rule>
+                            <RuleNumber>127</RuleNumber>
+                        </Rule>
+                        <Rule>
+                            <RuleNumber>1</RuleNumber>
+                        </Rule>
+                    </TrafficPolicyRules>
+                </AVC>
+                <AVC>
+                    <TrafficPolicyProfiles>
+                        <Profile>
+                            <ProfileNumber>31</ProfileNumber>
+                        </Profile>
+                        <Profile>
+                            <ProfileNumber>1</ProfileNumber>
+                        </Profile>
+                    </TrafficPolicyProfiles>
+                </AVC>
+            </top>
+        </config>
+    </edit-config>
+</rpc>
