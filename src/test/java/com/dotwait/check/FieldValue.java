@@ -6,36 +6,27 @@ import java.util.List;
  * 存储各个字段生成的正确的值和错误的值
  */
 public class FieldValue {
-    /**
-     * 正确的值
-     */
-    private List<Object> rightValues;
-    /**
-     * 错误的值
-     */
-    private List<Object> errorvalues;
+    private Object rightValue;
+    private Object errorValue;
 
-    public List<Object> getRightValues() {
-        return rightValues;
+    public FieldValue(Object rightValue, Object errorValue) {
+        this.rightValue = rightValue;
+        this.errorValue = errorValue;
     }
 
-    public void setRightValues(List<Object> rightValues) {
-        this.rightValues = rightValues;
+    public Object getRightValue() {
+        return rightValue;
     }
 
-    public List<Object> getErrorvalues() {
-        return errorvalues;
+    public void setRightValue(Object rightValue) {
+        this.rightValue = rightValue;
     }
 
-    public void setErrorvalues(List<Object> errorvalues) {
-        this.errorvalues = errorvalues;
+    public Object getErrorValue() {
+        return errorValue;
     }
 
-    @Override
-    public String toString() {
-        return "FieldValue{" +
-                "rightValues=" + rightValues +
-                ", errorvalues=" + errorvalues +
-                '}';
+    public void setErrorValue(Object errorValue) {
+        this.errorValue = errorValue;
     }
 }

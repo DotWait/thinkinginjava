@@ -32,6 +32,10 @@ public @interface Limit {
      */
     int length() default -1;
 
+    /**
+     * 字符串随机类型
+     * @return 随机类型
+     */
     RandomType randomType() default RandomType.NUM_OR_LETTER;
 
     /**

@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.json.JSON;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.dotwait.constitute.Constitute;
 import com.dotwait.util.Header;
 import com.dotwait.util.HttpUtil;
 import jdk.nashorn.internal.parser.JSONParser;
@@ -28,6 +29,12 @@ public class CheckTest {
         List<Object> objects = CheckUtil.generateNullFieldObjects(Father.class, father);
         objects.forEach(System.out::println);
         System.out.println(objects.size());
+        CheckUtil.printRightMap();
+        CheckUtil.printErrorMap();
+        List<Object> errorObjects = CheckUtil.generateErrorFieldObjects(Father.class, father);
+        System.out.println("==========================");
+        errorObjects.forEach(System.out::println);
+        System.out.println(errorObjects.size());
     }
 
     @Test
@@ -44,6 +51,23 @@ public class CheckTest {
         for (int i = 0; i < 255; i++) {
             System.out.println(i + " ==> " + (char) i);
         }
+    }
+
+    @Test
+    public void arrayTest(){
+        String[] strings = new String[]{"123"};
+        Father[] fathers = new Father[1];
+        Class aClass = fathers.getClass();
+        String name = aClass.getName();
+        System.out.println("name ==> "+ name);
+    }
+
+    @Test
+    public void consituteTest(){
+        Constitute constitute = new Constitute();
+        List<Integer> numbers = constitute.generateNumbers(5);
+        List<List<Integer>> lists = constitute.allCombination(numbers);
+        System.out.println(lists.size());
     }
 
     @Test
